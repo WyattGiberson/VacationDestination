@@ -151,8 +151,11 @@ public class DataBase {
         names.add("Great Barrier Reef");
         names.add("Sydney");
 
+
+
+
         for (int i=0; i < images.size(); i++){
-            allDestinations.add(new VacationDestination(names.get(i), images.get(i)));
+            allDestinations.add(new VacationDestination(names.get(i), images.get(i), false));
         }
     }
 }

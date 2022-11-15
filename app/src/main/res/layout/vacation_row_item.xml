@@ -12,55 +12,65 @@
     android:id="@+id/rootCardView">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemConstraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/itemConstraintLayout">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imvPlace"
             android:layout_width="0dp"
             android:layout_height="175dp"
-            android:scaleType="centerCrop"
             android:contentDescription="thumbnail"
-            app:srcCompat="@drawable/thumb_1_2"
-            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/thumb_1_2" />
 
         <TextView
             android:id="@+id/tvPlaceName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Place Name"
+            android:layout_marginStart="8dp"
             android:padding="15dp"
+            android:text="Place Name"
             android:textColor="#353434"
             android:textSize="20sp"
-            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imvHeart"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imvPlace"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/imvMakeCopy"/>
+            app:layout_constraintTop_toBottomOf="@+id/imvPlace" />
 
         <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            app:srcCompat="@drawable/ic_delete"
             android:id="@+id/imvDelete"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="7dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imvPlace"/>
-
-        <ImageView
             android:layout_width="22dp"
             android:layout_height="22dp"
-            app:srcCompat="@drawable/ic_make_copy"
-            android:id="@+id/imvMakeCopy"
             android:layout_margin="7dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imvPlace"
-            app:layout_constraintEnd_toStartOf="@+id/imvDelete"/>
+            app:srcCompat="@drawable/ic_delete" />
+
+        <ImageView
+            android:id="@+id/imvMakeCopy"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="7dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imvDelete"
+            app:layout_constraintEnd_toStartOf="@+id/imvDelete"
+            app:layout_constraintTop_toTopOf="@+id/imvDelete"
+            app:srcCompat="@drawable/ic_make_copy" />
+
+        <ImageView
+            android:id="@+id/imvHeart"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="7dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imvMakeCopy"
+            app:layout_constraintEnd_toStartOf="@+id/imvMakeCopy"
+            app:layout_constraintTop_toTopOf="@+id/imvMakeCopy"
+            app:layout_constraintVertical_bias="0.542"
+            app:srcCompat="@drawable/ic_emptyheart" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
