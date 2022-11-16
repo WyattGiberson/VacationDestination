@@ -8,16 +8,20 @@ import android.view.LayoutInflater;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private ArrayList<VacationDestination> destinationList;
+    private FragmentManager fragmentManger;
 
-    public MyAdapter(){
-        destinationList = DataBase.getData();
+    public MyAdapter(FragmentManager man, ArrayList<VacationDestination> d){
+        fragmentManger = man;
+        destinationList = d;
     }
+
 
     @NonNull
     @Override
@@ -48,7 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private ImageView imvPicture;
         private TextView txtName;
         private ImageView imvDelete;
@@ -100,6 +104,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     }
                 }
             });
+            itemView.setClickable(true);
+            itemView.setOnClickListener(this);
         }
 
         public void setData(VacationDestination vd, int position){
@@ -110,6 +116,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             if(vd.isFavorite()) {
                 imvFavorite.setImageResource(R.drawable.ic_emptyheart);
             }
+        }
+
+        @Override
+        public void onClick(View view) {
+            DialogShowFavorite dialog = new DialogShowFavorite(currentDest);
+            dialog.show(fragmentManger, "");
         }
     }
 

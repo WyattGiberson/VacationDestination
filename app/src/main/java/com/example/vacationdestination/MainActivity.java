@@ -21,12 +21,13 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.recyclerView);
 
         //adapter
-        MyAdapter adapter = new MyAdapter();
+        MyAdapter adapter = new MyAdapter(getSupportFragmentManager(), DataBase.getData());
         rv.setAdapter(adapter);
 
         //manager connects the above 2
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         rv.setLayoutManager(layoutManager);
+
     }
 }
